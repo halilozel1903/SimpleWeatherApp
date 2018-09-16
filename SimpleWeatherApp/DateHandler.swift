@@ -11,12 +11,13 @@ import Foundation
 // Tarih ile ilgili olayların ele alındığı sınıftır.
 
 class DateHandler{
+    
     static let stringOffset : Int = 10 // sınır değer belirlendi.
     static var todaysDate : String{ // today değeriyle ilgili işlemler
         return formatDateString(date : Date())
     }
     
-    static var tomorrowDate : String{ // tomorrow değeri ile ilgili işlemler
+    static var tomorrowsDate : String{ // tomorrow değeri ile ilgili işlemler
         guard let tomorrowDate = Calendar.current.date(byAdding : .day,
                                                        value : 1, to : Date()) else {return ""}
         return formatDateString(date: tomorrowDate)

@@ -23,7 +23,7 @@ struct City : Codable {
 struct WeatherDataPoint : Codable{
     let main : Temperatures
     let dt_txt : String
-    let weather : [WeatherData]
+    let weather : [WeatherIconData]
 }
 
 struct Temperatures : Codable {
@@ -41,5 +41,10 @@ struct WeatherByDay {
     let averageTemp : Double
     let averageMinTemp : Double
     let averageMaxTemp : Double
-    // let iconString : String
+    let iconString : String
+}
+
+enum Day{
+    case today
+    case tomorrow
 }
