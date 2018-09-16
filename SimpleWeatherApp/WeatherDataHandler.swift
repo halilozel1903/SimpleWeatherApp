@@ -11,6 +11,7 @@ import Foundation
 class WeatherDataHandler  {
     
     let data : Data
+    var weatherJSONData : WeatherData?
     
     init(_data : Data) {
         self.data = _data
@@ -18,5 +19,12 @@ class WeatherDataHandler  {
     
     func decodeData(){
         
+        let decoder = JSONDecoder()
+        do {
+           weatherJSONData = try decoder.decode(WeatherData.self, from: self.data)
+            
+        } catch  {
+            print(error)
+        }
     }
 }
