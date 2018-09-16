@@ -12,6 +12,9 @@ class WeatherDataHandler  {
     
     let data : Data
     var weatherJSONData : WeatherData?
+    var cityString : String?
+    var todaysData : WeatherByDay?
+    var tomorrowsData : WeatherByDay?
     
     init(_data : Data) {
         self.data = _data
@@ -22,6 +25,10 @@ class WeatherDataHandler  {
         let decoder = JSONDecoder()
         do {
            weatherJSONData = try decoder.decode(WeatherData.self, from: self.data)
+            
+            if let weatherData = weatherJSONData{
+                cityString = weatherData.city.name + "," + weatherData.city.country
+            }
             
         } catch  {
             print(error)

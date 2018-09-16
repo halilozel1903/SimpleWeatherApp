@@ -35,3 +35,11 @@ struct Temperatures : Codable {
 struct WeatherIconData : Codable{
     let icon : String
 }
+
+struct WeatherByDay {
+    let date : String
+    let averageTemp : Double
+    let averageMinTemp : Double
+    let averageMaxTemp : Double
+    // let iconString : String
+}
