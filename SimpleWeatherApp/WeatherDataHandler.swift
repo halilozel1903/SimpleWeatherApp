@@ -28,10 +28,33 @@ class WeatherDataHandler  {
             
             if let weatherData = weatherJSONData{
                 cityString = weatherData.city.name + "," + weatherData.city.country
+                sortDataPointsByDay(weatherData: weatherData)
             }
             
         } catch  {
             print(error)
         }
+        
+        
     }
+    
+    func sortDataPointsByDay(weatherData : WeatherData){
+        var todaysDataPoints = [WeatherDataPoint]()
+        var tomorrowsDataPoints = [WeatherDataPoint]()
+        
+        for dataPoint in weatherData.list {
+            var dateText = dataPoint.dt_txt
+            let endIndex = dateText.index(dateText.startIndex,offsetBy:DateHandler.stringOffset)
+            dateText = dateText.substring(to: endIndex)
+            
+            if dateText == DateHandler.todaysDate{
+                todaysDataPoints.append(dataPoint)
+            }else if dateText == DateHandler.tomorrowDate{
+                tomorrowsDataPoints.append(dataPoint)
+            }else{
+                break
+            }
+        }
+    }
+    
 }

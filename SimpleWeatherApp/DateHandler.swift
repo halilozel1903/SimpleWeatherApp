@@ -11,7 +11,7 @@ import Foundation
 // Tarih ile ilgili olayların ele alındığı sınıftır.
 
 class DateHandler{
-    private static let stringOffset : Int = 10 // sınır değer belirlendi.
+    static let stringOffset : Int = 10 // sınır değer belirlendi.
     static var todaysDate : String{ // today değeriyle ilgili işlemler
         return formatDateString(date : Date())
     }
